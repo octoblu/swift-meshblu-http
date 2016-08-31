@@ -1,0 +1,36 @@
+{
+  "name": "MeshbluHttp",
+  "version": "1.0.0",
+  "summary": "Swift Meshblu HTTP Client Library",
+  "description": "Swift Meshblu Client Library to easily connect Meshblu HTTP to iOS",
+  "homepage": "https://github.com/octoblu/swift-meshblu-http",
+  "license": "MIT",
+  "authors": {
+    "Sqrt of Octoblu": "sqrt@octoblu.com"
+  },
+  "source": {
+    "git": "https://github.com/octoblu/swift-meshblu-http.git",
+    "tag": "1.0.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "source_files": "MeshbluHttp/Classes/**/*",
+  "resource_bundles": {
+    "MeshbluHttp": [
+      "MeshbluHttp/Assets/*.png"
+    ]
+  },
+  "dependencies": {
+    "Alamofire": [
+      "~> 3.4"
+    ],
+    "SwiftyJSON": [
+      "~> 2.3"
+    ],
+    "Result": [
+      "~> 2.1"
+    ]
+  }
+}

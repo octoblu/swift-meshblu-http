@@ -1,0 +1,17 @@
+use_frameworks!
+
+def standard_pods
+    pod 'MeshbluHttp', :path => '../'
+end
+
+target 'MeshbluHttp_Example' do
+    standard_pods
+end
+
+target 'MeshbluHttp_Tests' do
+    standard_pods
+    pod 'Quick', '~> 0.8'
+    pod 'Nimble', '~> 3.0'
+    pod 'OHHTTPStubs' # Default subspecs, including support for NSURLSession & JSON etc
+    pod 'OHHTTPStubs/Swift' # Adds the Swiftier API wrapper too
+end

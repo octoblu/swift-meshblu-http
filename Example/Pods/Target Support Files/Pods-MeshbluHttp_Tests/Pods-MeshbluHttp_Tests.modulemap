@@ -1,0 +1,6 @@
+framework module Pods_MeshbluHttp_Tests {
+  umbrella header "Pods-MeshbluHttp_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

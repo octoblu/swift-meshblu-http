@@ -1,0 +1,6 @@
+framework module Pods_MeshbluHttp_Example {
+  umbrella header "Pods-MeshbluHttp_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}
