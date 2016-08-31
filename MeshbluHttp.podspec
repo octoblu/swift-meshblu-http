@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version          = "1.0.0"
   s.summary          = "Swift Meshblu HTTP Client Library"
   s.description      = <<-DESC
-    Swift Meshblu HTTP Client Library
+    Swift Meshblu HTTP Client Library, currently iOS only
 DESC
   s.homepage         = "https://github.com/octoblu/swift-meshblu-http"
   s.license          = 'MIT'
