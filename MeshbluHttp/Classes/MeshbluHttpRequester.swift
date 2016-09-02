@@ -10,6 +10,7 @@ public class MeshbluHttpRequester {
   var username : String?
   var password : String?
   var bearer : String?
+  var debug: Bool?
 
   public init(host : String, port : Int){
     self.host = host
@@ -57,7 +58,7 @@ public class MeshbluHttpRequester {
       headers.updateValue("Basic \(base64Credentials)", forKey: "Authorization")
     }
     if bearer != nil {
-      headers.updateValue("Bearer \(bearer)", forKey: "Authorization")
+      headers.updateValue("Bearer \(bearer!)", forKey: "Authorization")
     }
 
     switch method {
@@ -74,18 +75,26 @@ public class MeshbluHttpRequester {
     default:
       request = self.manager.request(.GET, url, parameters: parameters, encoding: .JSON, headers: headers)
     }
+    
+    if debug == true {
+      debugPrint(request)
+    }
 
     return request
   }
  
   private func handleResult(response: Alamofire.Response<AnyObject, NSError>, handler: (Result<JSON, NSError>) -> ()){
-    if response.result.isFailure {
-      let error = NSError(domain: "com.octoblu.meshblu", code: 500, userInfo: [NSLocalizedFailureReasonErrorKey: "\(response.result.error!)"])
-      handler(Result(error: error))
-      return
+    if debug == true {
+      debugPrint(response)
     }
-    let json = JSON(response.result.value!)
-    handler(Result(value: json))
+    switch response.result {
+    case .Failure(let error):
+      let theError = NSError(domain: "com.octoblu.meshblu-http", code: 500, userInfo: [NSLocalizedFailureReasonErrorKey: "\(error)"])
+      handler(Result(error: theError))
+    case .Success(let value):
+      let json = JSON(value)
+      handler(Result(value: json))
+    }
   }
 
   public func delete(path : String, parameters : [String: AnyObject], handler: (Result<JSON, NSError>) -> ()){
