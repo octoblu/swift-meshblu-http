@@ -75,7 +75,6 @@ public class MeshbluHttp {
   }
 
   public func register(device: [String: AnyObject], handler: (Result<JSON, NSError>) -> ()){
-    print(device)
     self.httpRequester.post("/devices", parameters: device) {
       (result) -> () in
 
