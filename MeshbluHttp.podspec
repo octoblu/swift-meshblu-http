@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "MeshbluHttp"
-  s.version          = "1.0.0"
+  s.version          = "1.1.0"
   s.summary          = "Swift Meshblu HTTP Client Library"
   s.description      = <<-DESC
     Swift Meshblu HTTP Client Library, currently iOS only
